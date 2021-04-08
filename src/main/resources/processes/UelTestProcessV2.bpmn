@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="m1617697540364" name="" targetNamespace="http://www.activiti.org/test" exporter="activiti Modeler" exporterVersion="4.6.0">
+  <process id="UelTestV2" name="流程节点赋值V2" processType="None" isClosed="false" isExecutable="true">
+    <startEvent id="_2">
+      <outgoing>Flow_0zes9oc</outgoing>
+    </startEvent>
+    <userTask id="uel_activity" name="报销申请" activiti:assignee="${taskAssignee}">
+      <incoming>Flow_0zes9oc</incoming>
+      <outgoing>Flow_0lbula5</outgoing>
+    </userTask>
+    <endEvent id="_4">
+      <incoming>Flow_114iw98</incoming>
+      <incoming>Flow_0wuvp9e</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_0zes9oc" sourceRef="_2" targetRef="uel_activity" />
+    <exclusiveGateway id="Gateway_0gu9k6n">
+      <incoming>Flow_0lbula5</incoming>
+      <outgoing>Flow_1oeer5t</outgoing>
+      <outgoing>Flow_1byylqa</outgoing>
+    </exclusiveGateway>
+    <userTask id="Activity_1fx61b3" name="唐僧审核" activiti:assignee="tangseng">
+      <incoming>Flow_1oeer5t</incoming>
+      <outgoing>Flow_114iw98</outgoing>
+    </userTask>
+    <userTask id="Activity_1m3dcpf" name="悟空审核" activiti:assignee="wukong">
+      <incoming>Flow_1byylqa</incoming>
+      <outgoing>Flow_0wuvp9e</outgoing>
+    </userTask>
+    <sequenceFlow id="Flow_0lbula5" sourceRef="uel_activity" targetRef="Gateway_0gu9k6n" />
+    <sequenceFlow id="Flow_1oeer5t" name="大于100" sourceRef="Gateway_0gu9k6n" targetRef="Activity_1fx61b3">
+      <conditionExpression xsi:type="tFormalExpression">${money&gt;100}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_1byylqa" name="小于等于100" sourceRef="Gateway_0gu9k6n" targetRef="Activity_1m3dcpf">
+      <conditionExpression xsi:type="tFormalExpression">${money&lt;=100}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_114iw98" sourceRef="Activity_1fx61b3" targetRef="_4" />
+    <sequenceFlow id="Flow_0wuvp9e" sourceRef="Activity_1m3dcpf" targetRef="_4" />
+  </process>
+  <bpmndi:BPMNDiagram id="Diagram-_1" name="New Diagram" documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0">
+    <bpmndi:BPMNPlane bpmnElement="UelTestV2">
+      <bpmndi:BPMNEdge id="Flow_0zes9oc_di" bpmnElement="Flow_0zes9oc">
+        <di:waypoint x="187" y="183" />
+        <di:waypoint x="280" y="183" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lbula5_di" bpmnElement="Flow_0lbula5">
+        <di:waypoint x="380" y="183" />
+        <di:waypoint x="435" y="183" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1oeer5t_di" bpmnElement="Flow_1oeer5t">
+        <di:waypoint x="460" y="158" />
+        <di:waypoint x="460" y="120" />
+        <di:waypoint x="590" y="120" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="480" y="123" width="40" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1byylqa_di" bpmnElement="Flow_1byylqa">
+        <di:waypoint x="460" y="208" />
+        <di:waypoint x="460" y="270" />
+        <di:waypoint x="590" y="270" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="469" y="253" width="62" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_114iw98_di" bpmnElement="Flow_114iw98">
+        <di:waypoint x="690" y="120" />
+        <di:waypoint x="772" y="120" />
+        <di:waypoint x="772" y="183" />
+        <di:waypoint x="874" y="183" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wuvp9e_di" bpmnElement="Flow_0wuvp9e">
+        <di:waypoint x="690" y="270" />
+        <di:waypoint x="772" y="270" />
+        <di:waypoint x="772" y="183" />
+        <di:waypoint x="874" y="183" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape-_2" bpmnElement="_2">
+        <omgdc:Bounds x="155" y="167" width="32" height="32" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="160" y="87" width="53" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape-uel_activity" bpmnElement="uel_activity">
+        <omgdc:Bounds x="280" y="155" width="100" height="55" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="0" y="0" width="100" height="55" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0gu9k6n_di" bpmnElement="Gateway_0gu9k6n" isMarkerVisible="true">
+        <omgdc:Bounds x="435" y="158" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0wc90nz_di" bpmnElement="Activity_1fx61b3">
+        <omgdc:Bounds x="590" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_01w643h_di" bpmnElement="Activity_1m3dcpf">
+        <omgdc:Bounds x="590" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape-_4" bpmnElement="_4">
+        <omgdc:Bounds x="874" y="167" width="32" height="32" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="162" y="82" width="49" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

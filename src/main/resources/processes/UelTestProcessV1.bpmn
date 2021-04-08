@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="m1617697540364" name="" targetNamespace="http://www.activiti.org/test" exporter="activiti Modeler" exporterVersion="4.6.0">
+  <process id="UelTestV1" name="启动流程给任务赋值" processType="None" isClosed="false" isExecutable="true">
+    <startEvent id="_2" name="StartEvent">
+      <outgoing>Flow_0zes9oc</outgoing>
+    </startEvent>
+    <userTask id="uel_activity" name="uel任务执行节点" activiti:assignee="${taskAssignee}">
+      <incoming>Flow_0zes9oc</incoming>
+      <outgoing>Flow_0l048a5</outgoing>
+    </userTask>
+    <endEvent id="_4" name="EndEvent">
+      <incoming>Flow_0l048a5</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_0zes9oc" sourceRef="_2" targetRef="uel_activity" />
+    <sequenceFlow id="Flow_0l048a5" sourceRef="uel_activity" targetRef="_4" />
+  </process>
+  <bpmndi:BPMNDiagram id="Diagram-_1" name="New Diagram" documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0">
+    <bpmndi:BPMNPlane bpmnElement="UelTestV1">
+      <bpmndi:BPMNEdge id="Flow_0zes9oc_di" bpmnElement="Flow_0zes9oc">
+        <di:waypoint x="507" y="463" />
+        <di:waypoint x="650" y="463" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0l048a5_di" bpmnElement="Flow_0l048a5">
+        <di:waypoint x="750" y="463" />
+        <di:waypoint x="914" y="463" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape-uel_activity" bpmnElement="uel_activity">
+        <omgdc:Bounds x="650" y="435" width="100" height="55" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="0" y="0" width="100" height="55" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape-_2" bpmnElement="_2">
+        <omgdc:Bounds x="475" y="447" width="32" height="32" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="160" y="87" width="53" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape-_4" bpmnElement="_4">
+        <omgdc:Bounds x="914" y="447" width="32" height="32" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="162" y="82" width="49" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

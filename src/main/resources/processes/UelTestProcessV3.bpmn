@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="m1617697540364" name="" targetNamespace="http://www.activiti.org/test" exporter="activiti Modeler" exporterVersion="4.6.0">
+  <process id="UelTestV3" name="实体类赋值" processType="None" isClosed="false" isExecutable="true">
+    <startEvent id="_2">
+      <outgoing>Flow_0zes9oc</outgoing>
+    </startEvent>
+    <userTask id="uel_activity" name="实体类任务" activiti:assignee="${uelpojo.assignee}">
+      <incoming>Flow_0zes9oc</incoming>
+      <outgoing>Flow_03mz1id</outgoing>
+    </userTask>
+    <endEvent id="_4">
+      <incoming>Flow_1lr3veg</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_0zes9oc" sourceRef="_2" targetRef="uel_activity" />
+    <userTask id="Activity_0wjj94w" name="候选人任务" activiti:candidateUsers="${candidates}">
+      <incoming>Flow_03mz1id</incoming>
+      <outgoing>Flow_1lr3veg</outgoing>
+    </userTask>
+    <sequenceFlow id="Flow_03mz1id" sourceRef="uel_activity" targetRef="Activity_0wjj94w" />
+    <sequenceFlow id="Flow_1lr3veg" sourceRef="Activity_0wjj94w" targetRef="_4" />
+  </process>
+  <bpmndi:BPMNDiagram id="Diagram-_1" name="New Diagram" documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0">
+    <bpmndi:BPMNPlane bpmnElement="UelTestV3">
+      <bpmndi:BPMNEdge id="Flow_0zes9oc_di" bpmnElement="Flow_0zes9oc">
+        <di:waypoint x="187" y="123" />
+        <di:waypoint x="330" y="123" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03mz1id_di" bpmnElement="Flow_03mz1id">
+        <di:waypoint x="430" y="123" />
+        <di:waypoint x="530" y="123" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1lr3veg_di" bpmnElement="Flow_1lr3veg">
+        <di:waypoint x="630" y="123" />
+        <di:waypoint x="734" y="123" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape-_2" bpmnElement="_2">
+        <omgdc:Bounds x="155" y="107" width="32" height="32" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="160" y="87" width="53" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape-uel_activity" bpmnElement="uel_activity">
+        <omgdc:Bounds x="330" y="95" width="100" height="55" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="0" y="0" width="100" height="55" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape-_4" bpmnElement="_4">
+        <omgdc:Bounds x="734" y="107" width="32" height="32" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="162" y="82" width="49" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0i9s0o4_di" bpmnElement="Activity_0wjj94w">
+        <omgdc:Bounds x="530" y="83" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
